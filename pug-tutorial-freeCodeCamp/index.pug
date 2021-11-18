@@ -1,0 +1,64 @@
+doctype html
+html
+    head 
+        link(rel="stylesheet", src="style.css")
+
+
+    body 
+        h1.helloWorld Welcome to the World!
+        p.someSentence.
+            Lorem ipsum dolor sit amet consectetur, adipisicing 
+            and elit. Ullam quibusdam harum velit.
+        .thisDiv Hello this is div
+        input(type="password")
+
+        - const myClasses = ["class1", "class2"]
+        div#mydiv(class=myClasses)
+
+        - const myAttributes = {"src":"myPhoto.jpeg", "alt":"alt"}
+        img&attributes(myAttributes)
+
+        input(type="text" disabled)
+
+        h1 For/Each loop 
+        - const names = ["Dom", "Sophie", "Greg"] 
+        each n, i in names
+            p= n + " - " + i
+
+        - const grades = {"Web Dev": 100, "Soft Eng": 99}
+        each n, i in grades    
+            p= n + " - " + i 
+        
+        for n, i in []   
+            p= n + " - " + i 
+        else 
+            strong No values in here!
+
+        - let user = {name: "Jaime", loggedIn: true, lastLogin: 6}
+        if loggedIn
+        - let greet = "Welcome back, #{user.name}!"
+        .showGreet greet
+
+        a(href="/login") Log in
+
+        // orderStatus => Pending I| In_Transit || Completed
+        - const orderStatus = "Pending"
+
+
+        case orderStatus
+        when 'Pending"
+            p Your order has been placed and will be sent shortly.
+        when 'In Transit'
+            p Your order is on the move - you should receive it soon!
+        when "Completed"
+            p Your order has been completed.    
+
+        include folderForPug/index2.pug
+
+        mixin comment(commentData)
+            .comment
+                .date= commentData.date
+                .author commentData.author
+                .text= commentData.text
+
+        +comment (c)
